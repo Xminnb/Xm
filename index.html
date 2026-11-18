@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>零成本 AI 漫剧实战课 | 一部手机，做出自己的 AI 漫剧</title>
+<meta name="description" content="零成本 AI 漫剧实战课：15 节视频，从剧本、分镜、生图、配音到剪辑发布，全流程手把手教学。一台手机，零成本出片。">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0e0e13;
+    --panel: #17171f;
+    --panel2: #1e1e28;
+    --line: #2a2a38;
+    --gold: #e6b84f;
+    --gold-deep: #c99a2e;
+    --red: #d64541;
+    --text: #f2f0ea;
+    --muted: #a9a7b3;
+    --muted2: #7d7b88;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    line-height: 1.7;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 56px 0; }
+  h2 { font-size: 24px; line-height: 1.4; margin-bottom: 8px; letter-spacing: .02em; }
+  h2 .num { color: var(--gold); font-size: 14px; display: block; letter-spacing: .25em; margin-bottom: 8px; }
+  .sub { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+  .tag {
+    display: inline-block; font-size: 12px; letter-spacing: .2em;
+    color: var(--gold); border: 1px solid var(--gold-deep);
+    border-radius: 999px; padding: 4px 14px; margin-bottom: 18px;
+  }
+  /* Hero */
+  .hero {
+    padding: 72px 0 60px;
+    background:
+      radial-gradient(ellipse 90% 55% at 50% -10%, rgba(214, 69, 65, .28), transparent 60%),
+      radial-gradient(ellipse 70% 45% at 50% 110%, rgba(230, 184, 79, .14), transparent 60%),
+      var(--bg);
+    text-align: center;
+  }
+  .hero h1 { font-size: 34px; line-height: 1.3; letter-spacing: .02em; margin: 12px 0 14px; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero p.lead { color: var(--muted); font-size: 16px; max-width: 560px; margin: 0 auto 26px; }
+  .stats { display: flex; justify-content: center; gap: 0; margin: 0 auto 30px; max-width: 560px; }
+  .stats div { flex: 1; border-left: 1px solid var(--line); padding: 4px 6px; }
+  .stats div:first-child { border-left: none; }
+  .stats b { display: block; font-size: 26px; color: var(--gold); line-height: 1.2; }
+  .stats span { font-size: 12px; color: var(--muted); }
+  .cta {
+    display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    color: #191410; font-weight: 700; font-size: 17px; text-decoration: none;
+    padding: 14px 44px; border-radius: 999px; letter-spacing: .05em;
+  }
+  .cta-note { margin-top: 12px; font-size: 13px; color: var(--muted2); }
+  /* Proof strip */
+  .proof {
+    background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 26px 0; text-align: center;
+  }
+  .proof .book { font-size: 20px; font-weight: 700; color: var(--gold); letter-spacing: .08em; }
+  .proof p { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  /* Pipeline */
+  .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .step {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 16px;
+  }
+  .step i { display: block; font-style: normal; font-size: 22px; color: var(--gold); font-weight: 700; line-height: 1; margin-bottom: 8px; }
+  .step b { display: block; font-size: 15px; margin-bottom: 4px; }
+  .step p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  /* Curriculum */
+  .module { margin-bottom: 22px; }
+  .module h3 { font-size: 15px; color: var(--gold); letter-spacing: .15em; margin-bottom: 10px; }
+  .lesson {
+    display: flex; gap: 12px; align-items: baseline;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 13px 16px; margin-bottom: 8px;
+  }
+  .lesson .no {
+    flex: none; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--panel2); border: 1px solid var(--line);
+    color: var(--gold); font-size: 13px; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    transform: translateY(5px);
+  }
+  .lesson b { font-size: 15px; font-weight: 600; display: block; line-height: 1.5; }
+  .lesson span { font-size: 12px; color: var(--muted2); }
+  .done { color: var(--gold); font-size: 12px; border: 1px solid var(--gold-deep); border-radius: 999px; padding: 1px 8px; margin-left: 6px; white-space: nowrap; }
+  .fine { font-size: 12px; color: var(--muted2); margin-top: 10px; }
+  /* Drama */
+  .drama { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .drama .quote {
+    font-size: 19px; line-height: 1.6; text-align: center; font-weight: 600;
+    color: var(--gold); margin: 6px 0 20px;
+  }
+  .drama .story { color: var(--muted); font-size: 15px; margin-bottom: 26px; }
+  .chars { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .char { background: var(--panel2); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .char b { display: block; font-size: 15px; margin-bottom: 4px; }
+  .char b small { color: var(--gold); font-weight: 400; font-size: 12px; margin-left: 6px; }
+  .char p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .char.wide { grid-column: 1 / -1; }
+  /* Pricing */
+  .price-card {
+    background: var(--panel); border: 1px solid var(--gold-deep); border-radius: 16px;
+    padding: 32px 24px; text-align: center;
+  }
+  .price-card .old { color: var(--muted2); text-decoration: line-through; font-size: 16px; }
+  .price-card .now { font-size: 52px; font-weight: 800; color: var(--gold); line-height: 1.1; }
+  .price-card .now small { font-size: 18px; font-weight: 600; }
+  .price-card .per { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+  .includes { text-align: left; max-width: 420px; margin: 0 auto 24px; }
+  .includes li { list-style: none; font-size: 15px; padding: 7px 0 7px 26px; position: relative; border-bottom: 1px dashed var(--line); }
+  .includes li:last-child { border-bottom: none; }
+  .includes li::before { content: "✓"; position: absolute; left: 2px; color: var(--gold); font-weight: 700; }
+  .price-note { font-size: 13px; color: var(--muted2); margin-top: 14px; }
+  /* Enroll */
+  .enroll-steps { counter-reset: s; }
+  .enroll-steps .e {
+    display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px;
+  }
+  .enroll-steps .e i {
+    flex: none; width: 32px; height: 32px; border-radius: 50%;
+    background: var(--gold); color: #191410; font-style: normal; font-weight: 800;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .enroll-steps .e b { display: block; font-size: 15px; margin-bottom: 2px; }
+  .enroll-steps .e p { font-size: 13px; color: var(--muted); }
+  /* FAQ */
+  .faq details {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .faq summary { font-size: 15px; font-weight: 600; cursor: pointer; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "＋"; float: right; color: var(--gold); }
+  .faq details[open ] summary::after { content: "－"; }
+  .faq p { font-size: 14px; color: var(--muted); margin-top: 10px; }
+  /* Footer */
+  footer { padding: 36px 0 48px; text-align: center; color: var(--muted2); font-size: 13px; }
+  footer b { color: var(--muted); }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 29px; }
+    .steps, .chars { grid-template-columns: 1fr; }
+    .stats b { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">零基础 · 一部手机 · 零成本</span>
+    <h1>零成本 <em>AI 漫剧</em>实战课</h1>
+    <p class="lead">不用美术功底，不会剪辑，也不用花钱买工具。15 节视频，从剧本、分镜、生图、配音到剪辑发布，手把手带你跑通整条 AI 漫剧流水线，做出自己的第一集。</p>
+    <div class="stats">
+      <div><b>15 节</b><span>录播视频</span></div>
+      <div><b>0 元</b><span>工具成本</span></div>
+      <div><b>1 台</b><span>手机就够</span></div>
+      <div><b>4 步</b><span>做出一集</span></div>
+    </div>
+    <a class="cta" href="#enroll">加微信咨询报名</a>
+    <p class="cta-note">早鸟价 299 元，满额后恢复 599 元</p>
+  </div>
+</header>
+
+<!-- PROOF -->
+<div class="proof">
+  <div class="wrap">
+    <div class="book">《三界红包群》</div>
+    <p>这门课的案例剧 —— 讲师用同一套方法从零做出来的原创漫剧，24 集大纲已完成，第一集已出片。</p>
+  </div>
+</div>
+
+<!-- WHAT YOU LEARN -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">01 / 学完你会什么</span>一条流水线，从想法到成片</h2>
+    <p class="sub">不讲虚的理论，只教能直接上手的操作。整套流程就 4 步，每一步都有对应的课程和模板。</p>
+    <div class="steps">
+      <div class="step"><i>01</i><b>写剧本</b><p>用 AI 写分集剧本，提示词模板直接套，零基础也能写出有钩子的故事。</p></div>
+      <div class="step"><i>02</i><b>画分镜</b><p>4 张图讲完一个故事，分镜设计 + 人物定妆，主角前后长相一致。</p></div>
+      <div class="step"><i>03</i><b>做声音</b><p>多角色 AI 配音实操，不同角色不同声线，再配上 BGM 和混音。</p></div>
+      <div class="step"><i>04</i><b>剪成片</b><p>推镜运镜、横竖屏适配、剪辑组装，做完直接发抖音、视频号、小红书。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2><span class="num">02 / 课程大纲</span>15 节，跟着做就能出片</h2>
+    <p class="sub">第 1、2 节成片已完成，其余章节按制作流水线顺序持续更新，报名后统一交付。</p>
+
+    <div class="module">
+      <h3>模块一 · 认知篇</h3>
+      <div class="lesson"><span class="no">1</span><div><b>AI 漫剧是什么，为什么现在是入场时机<span class="done">已出片</span></b><span>漫剧的定义、工具为什么现在成熟了、平台为什么缺内容。</span></div></div>
+      <div class="lesson"><span class="no">2</span><div><b>漫剧赚钱的三条路，哪条适合你<span class="done">已出片</span></b><span>自己做剧吃流量、卖技能与代制作、做 IP，三条路线掰开讲。</span></div></div>
+    </div>
+
+    <div class="module">
+      <h3>模块二 · 制作篇</h3>
+      <div class="lesson"><span class="no">3</span><div><b>零成本流水线全览：4 步做出一集</b><span>整条流水线一张图讲清，先建立全局认知再动手。</span></div></div>
+      <div class="lesson"><span class="no">4</span><div><b>AI 写分集剧本：提示词模板直接套</b><span>从一句话灵感到完整分集剧本，模板拿去就能用。</span></div></div>
+      <div class="lesson"><span class="no">5</span><div><b>分镜设计：4 张图讲完一个故事</b><span>分镜怎么拆、每张图讲什么、节奏怎么控。</span></div></div>
+      <div class="lesson"><span class="no">6</span><div><b>AI 生图人物一致性（定妆方法）</b><span>主角第一集长什么样，第六集还长什么样，定妆一次管全剧。</span></div></div>
+      <div class="lesson"><span class="no">7</span><div><b>多角色配音实操</b><span>中文 AI 配音，一个人配出全剧所有角色。</span></div></div>
+      <div class="lesson"><span class="no">8</span><div><b>剪辑组装：推镜运镜 + 混音 + BGM</b><span>画面、配音、音乐拼成片，剪辑软件全免费。</span></div></div>
+    </div>
+
+    <div class="module">
+      <h3>模块三 · 发布篇</h3>
+      <div class="lesson"><span class="no">9</span><div><b>横竖屏适配</b><span>一份成片，横竖两种尺寸都照顾到。</span></div></div>
+      <div class="lesson"><span class="no">10</span><div><b>抖音 / 视频号 / 小红书 / B站分发策略</b><span>不同平台发什么、怎么发、流量扶持怎么吃。</span></div></div>
+      <div class="lesson"><span class="no">11</span><div><b>幕后制作流引流视频剪法</b><span>“我是怎么做 AI 漫剧的”幕后视频，是最有效的引流内容。</span></div></div>
+    </div>
+
+    <div class="module">
+      <h3>模块四 · 变现篇</h3>
+      <div class="lesson"><span class="no">12</span><div><b>私域成交全流程</b><span>从加微信、朋友圈经营，到介绍课程、收款交付。</span></div></div>
+      <div class="lesson"><span class="no">13</span><div><b>一天做 3 集的批量工作流</b><span>流程跑顺之后，产量就是你的护城河。</span></div></div>
+      <div class="lesson"><span class="no">14</span><div><b>代制作报价方法</b><span>帮别人做漫剧怎么报价、怎么接单、怎么交付。</span></div></div>
+      <div class="lesson"><span class="no">15</span><div><b>毕业实战：独立完成一集并发布</b><span>照着流程独立做完一集，真正把技能带走。</span></div></div>
+    </div>
+
+    <p class="fine">附赠：分集剧本提示词模板 + 制作流程 SOP 文档，随课一起交付。</p>
+  </div>
+</section>
+
+<!-- DRAMA SHOWCASE -->
+<section class="drama">
+  <div class="wrap">
+    <h2><span class="num">03 / 案例剧</span>《三界红包群》</h2>
+    <p class="quote">「龙认主，不认天。」</p>
+    <p class="story">一个送外卖的凡人，被嫦娥拉进神仙红包群。抢到的每一件宝贝都是坑，直到他发现：自己体内封着九龙，生死簿上没有他的名字。都市奇幻，24 集，每集 1 分钟。</p>
+    <div class="chars">
+      <div class="char"><b>林凡<small>主角</small></b><p>25 岁外卖员，九龙封印携带者。抢红包抢出了一身麻烦，也抢出了自己的命。</p></div>
+      <div class="char"><b>嫦娥<small>气氛组</small></b><p>拉林凡进群的人。一单麻辣烫，把凡人撞进了神仙群。</p></div>
+      <div class="char"><b>太上老君</b><p>发九转金丹的人。林凡身上的封印，当年是他亲手下的。</p></div>
+      <div class="char"><b>孙悟空</b><p>抢红包没抢过林凡，顺着网线来当“顺丰快递员”，现在站林凡这边。</p></div>
+      <div class="char"><b>阎王</b><p>查生死簿查不到林凡，被吓到的那个。</p></div>
+      <div class="char"><b>母亲</b><p>玉佩里的虚影，留下信物和警告后消散，身份成谜。</p></div>
+      <div class="char wide"><b>神秘人<small>黑头像 ID</small></b><p>从没露过脸，发专属红包，只留下一句话：“守了你二十五年。”</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">04 / 价格</span>早鸟价，先到先得</h2>
+    <p class="sub">卖起来后涨到 599 元，早鸟名额满了就恢复原价。</p>
+    <div class="price-card">
+      <div class="old">原价 ¥599</div>
+      <div class="now"><small>¥</small>299</div>
+      <div class="per">早鸟价 · 15 节完整课程</div>
+      <ul class="includes">
+        <li>15 节录播视频，从剧本到成片全流程</li>
+        <li>分集剧本提示词模板，直接套用</li>
+        <li>制作流程 SOP 文档，照着做不出错</li>
+        <li>案例剧《三界红包群》制作思路全公开</li>
+        <li>有问题微信私信问，讲师亲自答疑</li>
+      </ul>
+      <a class="cta" href="#enroll">加微信咨询报名</a>
+      <p class="price-note">微信转账收款 · 交付用百度网盘或知识星球</p>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLL -->
+<section id="enroll" style="padding-top:0">
+  <div class="wrap">
+    <h2><span class="num">05 / 怎么报名</span>三步，马上开始学</h2>
+    <div class="enroll-steps">
+      <div class="e"><i>1</i><div><b>加微信咨询</b><p>抖音、视频号或小红书私信“想学做法”，或直接加讲师微信，说明要报《零成本 AI 漫剧实战课》。</p></div></div>
+      <div class="e"><i>2</i><div><b>微信转账 299 元</b><p>确认早鸟名额后微信转账，转账后截图发讲师确认。</p></div></div>
+      <div class="e"><i>3</i><div><b>收课程开始学</b><p>百度网盘链接或知识星球入群，二选一，15 节视频 + 模板 + SOP 一次给齐。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" style="padding-top:0">
+  <div class="wrap">
+    <h2><span class="num">06 / 常见问题</span>先把顾虑讲清楚</h2>
+    <details>
+      <summary>零基础真的能学吗？</summary>
+      <p>能。这门课就是为零基础设计的：不需要美术功底，不需要会剪辑，普通话不标准也没关系。讲师自己也是从零开始，流程跑通了才出来教。</p>
+    </details>
+    <details>
+      <summary>真的零成本吗？要不要花钱买工具？</summary>
+      <p>做课用的工具全是免费版和免费额度，一台手机就能做，不用充钱、不用买软件。唯一要花的是你的时间。</p>
+    </details>
+    <details>
+      <summary>多久能做出第一集？</summary>
+      <p>按流程走，第一集几天就能出片。流水线跑顺之后，一天做 3 集是课程里会教的批量工作流。</p>
+    </details>
+    <details>
+      <summary>学完能赚钱吗？</summary>
+      <p>两条路：自己做剧攒粉丝，吃流量分成、接商单；或者把“会做 AI 漫剧”这个技能卖出去，教别人做、帮别人做。方法都教，但不承诺包赚，能不能成看执行。</p>
+    </details>
+    <details>
+      <summary>抖音上免费教程那么多，为什么要付费？</summary>
+      <p>免费教程是碎片，东一块西一块，拼不成一条能出片的流水线。这门课是讲师自己完整跑通的方法，带模板、带 SOP，照着做就能出片，省的是你自己摸索的时间。</p>
+    </details>
+    <details>
+      <summary>课程是怎么交付的？</summary>
+      <p>录播视频，百度网盘链接或知识星球入群，二选一。报名后一次给齐 15 节视频 + 提示词模板 + SOP 文档，随时能看。</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>零成本 AI 漫剧实战课</b> · 讲师 Chen</p>
+    <p>课程为录播视频，学习效果因人而异；方法全部教到，不承诺包赚。</p>
+  </div>
+</footer>
+
+</body>
+</html>
